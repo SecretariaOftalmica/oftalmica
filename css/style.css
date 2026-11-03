@@ -1,5 +1,7 @@
 /* OFTÁLMICA — IDENTIDAD WEB 2026 | Diseño editorial, cálido y accesible */
 :root {
+  color-scheme: only light;
+
   --paper: #faf8f5;
   --white: #fffefa;
   --cream: #f1ece5;
@@ -728,4 +730,23 @@ p,h1,h2,h3{margin-top:0}
 }
 @media (max-width: 650px) {
   .mobile-nav { top: 72px; height: calc(100dvh - 72px); max-height: calc(100dvh - 72px); }
+}
+
+/* v7 · Protección de la paleta ante el modo oscuro automático del navegador.
+   Algunos navegadores que fuerzan colores pueden ignorar esta preferencia. */
+html, body { color-scheme: only light; }
+@media (max-width: 1080px) {
+  /* El número completo se consulta desde el menú móvil, nunca sobre el logo. */
+  .site-header__inner .header-urgent { display: none; }
+  .site-header__inner { justify-content: space-between; }
+  .site-header .menu-toggle { margin-left: auto; }
+}
+@media (max-width: 650px) {
+  .hero__copy h1, .hero__text, .hero-fact h2, .hero-fact p { max-width: 100%; }
+  .hero__facts { min-width: 0; }
+  .hero-fact { overflow-wrap: anywhere; }
+  .hero-fact p strong { white-space: normal; }
+  .hero__actions .button { max-width: 100%; }
+  .hero__actions .button span { flex-shrink: 0; }
+  .service-ribbon__inner { white-space: normal; flex-wrap: wrap; justify-content: center; }
 }
