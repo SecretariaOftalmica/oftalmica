@@ -31,6 +31,19 @@
     if (event.matches) setMenu(false);
   });
 
+  // En celulares ya existe una CTA de turnos en el inicio. Mostrar el acceso
+  // flotante únicamente al avanzar evita tapar las tarjetas de contacto.
+  const floatingWhatsApp = document.querySelector('.floating-whatsapp');
+  const hero = document.querySelector('.hero');
+  const updateFloating = () => {
+    if (!floatingWhatsApp || !hero) return;
+    const mobile = window.matchMedia('(max-width: 650px)').matches;
+    floatingWhatsApp.classList.toggle('is-active', !mobile || hero.getBoundingClientRect().bottom < 125);
+  };
+  updateFloating();
+  window.addEventListener('scroll', updateFloating, {passive: true});
+  window.addEventListener('resize', updateFloating);
+
   const updateHeader = () => header.classList.toggle('is-scrolled', window.scrollY > 12);
   updateHeader();
   window.addEventListener('scroll', updateHeader, {passive: true});

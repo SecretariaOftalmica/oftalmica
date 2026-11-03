@@ -539,3 +539,193 @@ p,h1,h2,h3{margin-top:0}
   .hero-fact h2{font-size:26px}
   .hero-fact p strong{font-size:17px}
 }
+
+/* OFTÁLMICA · v6 — adaptación móvil integral
+   Reglas deliberadamente agrupadas para evitar conflictos con estilos históricos. */
+@media (max-width: 1080px) {
+  /* La urgencia sigue en la portada y en el menú, sin invadir el encabezado. */
+  .site-header__inner .header-urgent { display: none; }
+  .site-header__inner { gap: 14px; }
+  .mobile-nav { overscroll-behavior: contain; max-height: calc(100dvh - 80px); min-height: 0; }
+  .mobile-nav > a:not(.mobile-nav__contact):not(.mobile-nav__urgent) {
+    font-size: clamp(31px, 7vw, 45px);
+    padding-block: clamp(11px, 2.5vh, 17px);
+    line-height: 1.12;
+  }
+  .mobile-nav > a.mobile-nav__urgent {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 14px;
+    line-height: 1.5;
+    font-weight: 700;
+    letter-spacing: 0;
+    margin-top: 10px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line);
+    color: var(--brown-dark);
+  }
+  .mobile-nav > a.mobile-nav__contact { margin-top: 20px; flex-shrink: 0; }
+  .hero__full { min-width: 0; }
+  .hero__copy { min-width: 0; }
+  .hero__facts { min-width: 0; }
+  .hero__facts .hero-fact { min-width: 0; }
+  .hero__facts .hero-fact h2 { overflow-wrap: normal; }
+}
+
+/* Tabletas: la información se ve en una fila, sin grandes bloques apilados. */
+@media (min-width: 651px) and (max-width: 1080px) {
+  .hero { padding-block: 30px 38px; }
+  .hero__full { gap: 24px; }
+  .hero__copy h1 { max-width: 14ch; font-size: clamp(57px, 7.4vw, 76px); }
+  .hero__text { max-width: 640px; }
+  .hero__facts { grid-template-columns: repeat(3, minmax(0, 1fr)); align-self: auto; gap: 12px; }
+  .hero-fact { min-height: 188px; padding: 18px 16px; border-radius: 20px; }
+  .hero-fact h2 { font-size: clamp(23px, 3.2vw, 29px); }
+  .hero-fact p strong { font-size: clamp(16px, 2.25vw, 19px); }
+  .hero-fact__kicker { font-size: 9px; line-height: 1.5; }
+  .hero-fact a { font-size: 12px; }
+  .services__columns, .surgery__grid, .contact__panel { min-width: 0; }
+}
+
+@media (max-width: 650px) {
+  :root { --pad-x: clamp(18px, 5vw, 26px); }
+  html { scroll-padding-top: 78px; }
+  .section-pad { padding-block: clamp(60px, 13vw, 82px); }
+  .wrap { min-width: 0; }
+  .site-header { height: 72px; }
+  .site-header__inner { min-width: 0; }
+  .site-header .brand { width: 125px; }
+  .site-header .brand img { width: 122px; height: auto; max-height: 65px; }
+  .menu-toggle { width: 44px; height: 44px; flex: 0 0 44px; }
+  .mobile-nav { top: 72px; max-height: calc(100dvh - 72px); padding: 17px var(--pad-x) 28px; }
+
+  /* Un título protagonista, sin cinco o seis renglones accidentales. */
+  .hero { display: block; padding: 25px 0 30px; min-height: 0; }
+  .hero__full { display: block; }
+  .hero__copy { display: block; padding: 0; background-image: none; }
+  .hero__topline { white-space: normal; font-size: 10px; line-height: 1.55; letter-spacing: .09em; gap: 9px; margin-bottom: 23px; }
+  .hero__copy h1 {
+    font-size: clamp(46px, 11.8vw, 68px);
+    line-height: .94;
+    max-width: 12ch;
+    margin: 0 0 19px;
+    letter-spacing: -.049em;
+    text-wrap: balance;
+  }
+  .hero__text { font-size: 15px; line-height: 1.65; max-width: 44ch; margin-bottom: 22px; }
+  .hero__actions { display: flex; align-items: flex-start; gap: 16px; flex-direction: column; }
+  .hero__actions .button { min-height: 52px; font-size: 13px; padding: 4px 4px 4px 20px; }
+  .hero__actions .button__circle { width: 42px; height: 42px; }
+  .hero__actions .text-link { font-size: 13px; }
+  .hero__facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 11px; margin-top: 30px; }
+  .hero-fact { min-height: 0; padding: 18px 16px; border-radius: 20px; }
+  .hero-fact__kicker { font-size: 9px; letter-spacing: .10em; margin-bottom: 11px; line-height: 1.45; }
+  .hero-fact h2 { font-size: clamp(24px, 6vw, 30px); line-height: 1.06; margin-bottom: 10px; }
+  .hero-fact p { margin-bottom: 14px; font-size: 12px; line-height: 1.55; }
+  .hero-fact p strong { font-size: clamp(15px, 4.1vw, 18px); white-space: nowrap; }
+  .hero-fact a { font-size: 12px; gap: 6px; line-height: 1.45; }
+  .hero-fact a svg { width: 15px; height: 15px; }
+  .hero-fact:last-child { grid-column: 1 / -1; padding-block: 16px; }
+  .hero-fact:last-child h2 { font-size: 27px; }
+  .hero-fact:last-child p { margin-bottom: 9px; }
+
+  .service-ribbon__inner { padding-block: 15px; gap: 5px 10px; font-size: 9px; letter-spacing: .10em; line-height: 1.6; }
+  .ribbon-flower { font-size: 11px; }
+
+  .display-title { font-size: clamp(43px, 10.7vw, 63px); line-height: .99; max-width: 100%; overflow-wrap: break-word; }
+  .section-kicker { font-size: 10px; gap: 11px; margin-bottom: 22px; line-height: 1.4; letter-spacing: .12em; }
+  .about__grid { gap: 32px; }
+  .about__visual { height: clamp(290px, 84vw, 445px); }
+  .about__image-main { top: 0; height: 77%; }
+  .about__image-small { height: 48%; bottom: 5%; }
+  .about__image-meta { bottom: 0; font-size: 9px; }
+  .about__content .display-title { margin-bottom: 19px; }
+  .about__content .lead { font-size: 18px; line-height: 1.5; margin-bottom: 17px; }
+  .about__content>p:not(.lead) { font-size: 15px; line-height: 1.72; }
+  .inline-link { gap: 13px; font-size: 13px; margin-top: 13px; }
+
+  .services__heading { margin-bottom: 30px; }
+  .services__intro { margin-top: 17px; }
+  .services__intro p { font-size: 15px; }
+  .little-instruction { font-size: 10px; line-height: 1.5; display: block; }
+  .service-item summary { grid-template-columns: 27px minmax(0, 1fr) 28px; gap: 8px; min-height: 76px; padding: 15px 0; }
+  .service-name { font-size: clamp(23px, 6.5vw, 32px); line-height: 1.08; min-width: 0; overflow-wrap: break-word; }
+  .service-item>p { margin: 0 32px 21px 35px; font-size: 14px; }
+  .services__footer { font-size: 14px; line-height: 1.55; }
+
+  .interlude { height: clamp(390px, 105vw, 490px); }
+  .interlude__content { padding-top: 42px; padding-bottom: 27px; }
+  .interlude__phrase { font-size: clamp(43px, 10.8vw, 62px); line-height: 1.02; max-width: 100%; overflow-wrap: break-word; }
+  .interlude__bottom { font-size: 9px; line-height: 1.5; }
+
+  .team__header { margin-bottom: 30px; }
+  .team__header>p { margin-top: 17px; font-size: 15px; line-height: 1.65; }
+  .team__cards { gap: 14px; }
+  .doctor-card { min-width: 0; min-height: 0; grid-template-columns: minmax(98px, 35%) minmax(0, 1fr); gap: 15px; padding: 14px; align-items: center; }
+  .doctor-card__portrait { max-width: none; width: 100%; aspect-ratio: .78; height: auto; }
+  .doctor-card__details { min-width: 0; padding: 0; margin: 0; }
+  .doctor-card__role { font-size: 10px; letter-spacing: .035em; line-height: 1.45; overflow-wrap: break-word; }
+  .doctor-card__details h3 { font-size: clamp(30px, 7.7vw, 43px); line-height: 1; margin: 10px 0; }
+  .doctor-card__details p { font-size: 11px; line-height: 1.5; }
+
+  .surgery__grid, .surgery__intro, .surgery__list { min-width: 0; }
+  .surgery__intro .display-title { font-size: clamp(40px, 10.3vw, 58px); line-height: 1.02; overflow-wrap: break-word; }
+  .surgery__intro>p { font-size: 15px; line-height: 1.7; margin: 23px 0; }
+  .surgery__grid { gap: 36px; }
+  .surgery__list li { grid-template-columns: 25px minmax(0, 1fr); gap: 10px; padding: 18px 0; }
+  .surgery__list li strong { font-size: clamp(25px, 6.9vw, 34px); line-height: 1.13; overflow-wrap: break-word; min-width: 0; }
+
+  .contact__head { margin-bottom: 30px; }
+  .contact__head>p { margin-top: 16px; font-size: 15px; line-height: 1.65; }
+  .contact__primary { padding: 30px 22px; min-width: 0; }
+  .contact__primary h3 { font-size: clamp(48px, 11.8vw, 66px); margin: 18px 0 24px; line-height: .98; }
+  .contact__wa { min-width: 0; padding: 13px 16px; gap: 11px; }
+  .contact__wa span { white-space: normal; font-size: 12px; }
+  .contact__wa strong { font-size: 15px; white-space: nowrap; }
+  .contact__wa-arrow { margin-left: 0; }
+  .contact__secondary { padding: 19px 22px 25px; min-width: 0; }
+  .info-row { min-width: 0; }
+  .info-row>div { min-width: 0; }
+  .info-row .contact-mail { display: inline-block; max-width: 100%; font-size: 14px; overflow-wrap: anywhere; }
+  .contact__urgent { padding: 23px 21px; gap: 12px; }
+  .contact__urgent p { font-size: 21px; line-height: 1.38; }
+  .contact__urgent small { font-size: 12px; }
+  .contact__urgent-symbol { font-size: 22px; align-self: flex-start; margin-top: 5px; }
+  .contact { padding-bottom: 65px; }
+  .footer__top { min-height: 214px; }
+  .footer__bottom { font-size: 10px; overflow-wrap: break-word; }
+
+  /* Acceso flotante compacto: no tapa las tarjetas ni la información. */
+  .floating-whatsapp { width: 54px; height: 54px; padding: 0; border-radius: 50%; right: 14px; bottom: max(14px, env(safe-area-inset-bottom)); gap: 0; }
+  .floating-whatsapp span { display: none; }
+  .floating-whatsapp svg { width: 24px; height: 24px; }
+}
+
+@media (max-width: 360px) {
+  .hero__copy h1 { font-size: clamp(41px, 12vw, 45px); max-width: 11.3ch; }
+  .hero__facts { grid-template-columns: 1fr; margin-top: 23px; }
+  .hero-fact, .hero-fact:last-child { grid-column: auto; min-height: 0; padding: 15px 17px; }
+  .hero-fact h2, .hero-fact:last-child h2 { font-size: 26px; margin-bottom: 6px; }
+  .hero-fact__kicker { margin-bottom: 7px; }
+  .hero-fact p { margin-bottom: 9px; }
+  .doctor-card { grid-template-columns: 104px minmax(0, 1fr); gap: 10px; padding: 11px; }
+  .doctor-card__role { font-size: 9px; }
+  .doctor-card__details h3 { font-size: 29px; }
+  .doctor-card__details p { font-size: 10px; }
+  .interlude__phrase { font-size: 41px; }
+  .contact__primary h3 { font-size: 46px; }
+}
+
+@media (max-width: 650px) {
+  .floating-whatsapp { opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(8px); }
+  .floating-whatsapp.is-active { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); }
+}
+
+/* Menú en pantalla completa: no deja visible contenido detrás en móviles. */
+@media (max-width: 1080px) {
+  .site-header { background: var(--paper); }
+  .mobile-nav { background: var(--paper); height: calc(100dvh - 80px); max-height: calc(100dvh - 80px); overflow-y: auto; }
+}
+@media (max-width: 650px) {
+  .mobile-nav { top: 72px; height: calc(100dvh - 72px); max-height: calc(100dvh - 72px); }
+}
